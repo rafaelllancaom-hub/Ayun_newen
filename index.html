@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AYÜN_NEWEN ❤️</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#fffaf6;
+  color:#38251f;
+}
+
+header{
+  background:#fff0df;
+  text-align:center;
+  padding:45px 20px 40px;
+}
+
+header h1{
+  margin:0;
+  font-size:42px;
+  letter-spacing:1px;
+}
+
+header p{
+  font-size:20px;
+  color:#765f56;
+  margin:18px 0 25px;
+}
+
+.btn-principal{
+  display:inline-block;
+  background:#a45b46;
+  color:white;
+  padding:17px 35px;
+  border-radius:18px;
+  font-size:20px;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+main{
+  max-width:900px;
+  margin:auto;
+  padding:30px 18px 120px;
+}
+
+.intro{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.intro h2{
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+.intro p{
+  font-size:18px;
+  color:#6f5a51;
+}
+
+.categorias{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding:10px 0 25px;
+}
+
+.categoria{
+  flex:0 0 auto;
+  background:white;
+  border:2px solid #eaded6;
+  border-radius:20px;
+  padding:13px 20px;
+  font-size:17px;
+  font-weight:bold;
+}
+
+.seccion{
+  margin-top:35px;
+}
+
+.seccion h2{
+  font-size:32px;
+  margin-bottom:18px;
+}
+
+.producto{
+  background:white;
+  border:2px solid #eaded6;
+  border-radius:22px;
+  padding:22px;
+  margin-bottom:18px;
+  box-shadow:0 4px 15px rgba(80,50,30,.06);
+}
+
+.producto h3{
+  margin:0 0 8px;
+  font-size:23px;
+}
+
+.precio{
+  font-size:24px;
+  font-weight:bold;
+  margin:8px 0;
+}
+
+.descripcion{
+  color:#725e55;
+  margin-bottom:15px;
+}
+
+.opciones{
+  background:#fff8f2;
+  padding:15px;
+  border-radius:15px;
+  margin:15px 0;
+}
+
+.opciones label{
+  display:block;
+  margin:10px 0;
+  font-size:16px;
+}
+
+select,input,textarea{
+  width:100%;
+  padding:13px;
+  border:2px solid #e4d6ce;
+  border-radius:12px;
+  background:white;
+  font-size:16px;
+  margin-top:6px;
+}
+
+textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+.btn-agregar{
+  width:100%;
+  border:0;
+  background:#d7ae50;
+  color:#38251f;
+  padding:15px;
+  border-radius:13px;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.btn-agregar:active{
+  transform:scale(.98);
+}
+
+.carrito{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:#38251f;
+  color:white;
+  padding:14px 18px;
+  z-index:10;
+  box-shadow:0 -4px 20px rgba(0,0,0,.2);
+}
+
+.carrito-contenido{
+  max-width:900px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+
+.carrito strong{
+  font-size:19px;
+}
+
+.btn-ver{
+  background:#d7ae50;
+  color:#38251f;
+  border:0;
+  padding:12px 18px;
+  border-radius:12px;
+  font-weight:bold;
+}
+
+#pedido{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  z-index:20;
+  padding:20px;
+  overflow:auto;
+}
+
+.pedido-caja{
+  max-width:600px;
+  margin:30px auto;
+  background:white;
+  border-radius:22px;
+  padding:25px;
+}
+
+.pedido-caja h2{
+  margin-top:0;
+}
+
+.item-pedido{
+  border-bottom:1px solid #eaded6;
+  padding:12px 0;
+}
+
+.total{
+  font-size:24px;
+  font-weight:bold;
+  margin:20px 0;
+}
+
+.btn-final{
+  width:100%;
+  padding:15px;
+  border:0;
+  border-radius:13px;
+  background:#a45b46;
+  color:white;
+  font-size:18px;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+.btn-cerrar{
+  width:100%;
+  padding:13px;
+  border:2px solid #a45b46;
+  border-radius:13px;
+  background:white;
+  color:#a45b46;
+  font-size:17px;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+.vacio{
+  text-align:center;
+  color:#765f56;
+}
+
+@media(max-width:600px){
+  header h1{
+    font-size:34px;
+  }
+
+  .intro h2{
+    font-size:28px;
+  }
+
+  .seccion h2{
+    font-size:27px;
+  }
+
+  .carrito-contenido{
+    flex-direction:row;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>AYÜN_NEWEN ❤️</h1>
+  <p>Antojos preparados con cariño</p>
+  <a href="#productos" class="btn-principal">🛒 Hacer mi pedido</a>
+</header>
+
+<main id="productos">
+
+<section class="intro">
+  <h2>Tú eliges cómo lo quieres 😊</h2>
+  <p>Elige tus productos, agrega extras y déjanos tu comentario especial.</p>
+</section>
+
+<div class="categorias">
+  <div class="categoria">🍓 Frutillas</div>
+  <div class="categoria">🍌 Vasos de plátano</div>
+  <div class="categoria">🧇 Waffles</div>
+  <div class="categoria">🍔 Hamburguesas</div>
+  <div class="categoria">🌭 Completos</div>
+  <div class="categoria">🥪 Churrascos</div>
+</div>
+
+<!-- FRUTILLAS -->
+<section class="seccion">
+<h2>🍓 FRUTILLAS</h2>
+
+<div class="producto">
+<h3>Vaso pequeño</h3>
+<div class="precio">$2.800</div>
+<div class="descripcion">Frutillas con crema, Nutella, 2 toppings y 1 salsa.</div>
+
+<div class="opciones">
+<label>
+Nutella extra
+<select id="f1">
+<option value="0">No agregar</option>
+<option value="1000">Sí, +$1.000</option>
+</select>
+</label>
+
+<label>
+Topping extra
+<select id="f2">
+<option value="0">No agregar</option>
+<option value="500">Sí, +$500</option>
+</select>
+</label>
+</div>
+
+<button class="btn-agregar" onclick="agregar('Vaso pequeño de frutillas',2800,'f1','f2')">
+Agregar al pedido
+</button>
+</div>
+
+<div class="producto">
+<h3>Vaso mediano</h3>
+<div class="precio">$3.400</div>
+<div class="descripcion">Frutillas con crema, Nutella, 2 toppings y 1 salsa.</div>
+
+<div class="opciones">
+<label>
+Nutella extra
+<select id="f3">
+<option value="0">No agregar</option>
+<option value="1000">Sí, +$1.000</option>
+</select>
+</label>
+
+<label>
+Topping extra
+<select id="f4">
+<option value="0">No agregar</option>
+<option value="500">Sí, +$500</option>
+</select>
+</label>
+</div>
+
+<button class="btn-agregar" onclick="agregar('Vaso mediano de frutillas',3400,'f3','f4')">
+Agregar al pedido
+</button>
+</div>
+
+<div class="producto">
+<h3>Vaso grande</h3>
+<div class="precio">$3.900</div>
+<div class="descripcion">Frutillas con crema, Nutella, 2 toppings y 1 salsa.</div>
+
+<div class="opciones">
+<label>
+Nutella extra
+<select id="f5">
+<option value="0">No agregar</option>
+<option value="1000">Sí, +$1.000</option>
+</select>
+</label>
+
+<label>
+Topping extra
+<select id="f6">
+<option value="0">No agregar</option>
+<option value="500">Sí, +$500</option>
+</select>
+</label>
+</div>
+
+<button class="btn-agregar" onclick="agregar('Vaso grande de frutillas',3900,'f5','f6')">
+Agregar al pedido
+</button>
+</div>
+
+</section>
+
+<!-- PLATANO -->
+<section class="seccion">
+<h2>🍌 VASOS DE PLÁTANO</h2>
+
+<div class="producto">
+<h3>Vaso de plátano</h3>
+<div class="precio">$2.500</div>
+<div class="descripcion">Plátano, crema, Nutella, 2 toppings y 1 salsa.</div>
+
+<div class="opciones">
+<label>
+Nutella extra
+<select id="p1">
+<option value="0">No agregar</option>
+<option value="1000">Sí, +$1.000</option>
+</select>
+</label>
+
+<label>
+Topping extra
+<select id="p2">
+<option value="0">No agregar</option>
+<option value="500">Sí, +$500</option>
+</select>
+</label>
+</div>
+
+<button class="btn-agregar" onclick="agregar('Vaso de plátano',2500,'p1','p2')">
+Agregar al pedido
+</button>
+</div>
+
+</section>
+
+<!-- WAFFLES -->
+<section class="seccion">
+<h2>🧇 WAFFLES</h2>
+
+<div class="producto">
+<h3>Waffle</h3>
+<div class="precio">$3.500</div>
+<div class="descripcion">Waffle preparado con cariño.</div>
+
+<div class="opciones">
+<label>
+Nutella extra
+<select id="w1">
+<option value="0">No agregar</option>
+<option value="1000">Sí, +$1.000</option>
+</select>
+</label>
+
+<label>
+Topping extra
+<select id="w2">
+<option value="0">No agregar</option>
+<option value="500">Sí, +$500</option>
+</select>
+</label>
+</div>
+
+<button class="btn-agregar" onclick="agregar('Waffle',3500,'w1','w2')">
+Agregar al pedido
+</button>
+</div>
+
+</section>
+
+<!-- HAMBURGUESAS -->
+<section class="seccion">
+<h2>🍔 HAMBURGUESAS</h2>
+
+<div class="producto">
+<h3>Hamburguesa</h3>
+<div class="precio">$3.000</div>
+<div class="descripcion">Carne, tomate, lechuga, palta y mayonesa.</div>
+
+<div class="opciones">
+<label>
+Queso cheddar
+<select id="h1">
+<option value="0">No agregar</option>
+<option value="400">Sí, +$400</option>
+</select>
+</label>
+
+<label>
+Queso blanco
+<select id="h2">
+<option value="0">No agregar</option>
+<option value="300">Sí, +$300</option>
+</select>
+</label>
+
+<label>
+Pepinillo dulce
+<select id="h3">
+<option value="0">No agregar</option>
+<option value="400">Sí, +$400</option>
+</select>
+</label>
+</div>
+
+<button class="btn-agregar" onclick="agregarTres('Hamburguesa',3000,'h1','h2','h3')">
+Agregar al pedido
+</button>
+</div>
+
+</section>
+
+<!-- COMPLETOS -->
+<section class="seccion">
+<h2>🌭 COMPLETOS</h2>
+
+<div class="producto">
+<h3>Completo</h3>
+<div class="precio">$1.200</div>
+<div class="descripcion">Tomate, chucrut y americana.</div>
+
+<button class="btn-agregar" onclick="agregar('Completo',1200,null,null)">
+Agregar al pedido
+</button>
+</div>
+
+<div class="producto">
+<h3>Dinámico</h3>
+<div class="precio">$1.400</div>
+<div class="descripcion">Tomate, chucrut, americana y palta.</div>
+
+<button class="btn-agregar" onclick="agregar('Dinámico',1400,null,null)">
+Agregar al pedido
+</button>
+</div>
+
+<div class="producto">
+<h3>Italiano</h3>
+<div class="precio">$1.000</div>
+<div class="descripcion">Tomate y palta.</div>
+
+<button class="btn-agregar" onclick="agregar('Italiano',1000,null,null)">
+Agregar al pedido
+</button>
+</div>
+
+</section>
+
+<!-- CHURRASCOS -->
+<section class="seccion">
+<h2>🥪 CHURRASCOS</h2>
+
+<div class="producto">
+<h3>Churrasco italiano</h3>
+<div class="precio">$2.500</div>
+<div class="descripcion">Tomate y palta.</div>
+
+<button class="btn-agregar" onclick="agregar('Churrasco italiano',2500,null,null)">
+Agregar al pedido
+</button>
+</div>
+
+</section>
+
+<section class="seccion">
+<h2>📝 Comentario especial</h2>
+<p>¿Quieres sacar algún ingrediente o agregar algo diferente?</p>
+
+<textarea id="comentario" placeholder="Ejemplo: sin tomate, agregar más crema, etc."></textarea>
+</section>
+
+</main>
+
+<!-- CARRITO -->
+<div class="carrito">
+<div class="carrito-contenido">
+<strong>🛒 Pedido: <span id="cantidad">0</span> | $<span id="total">0</span></strong>
+<button class="btn-ver" onclick="verPedido()">Ver pedido</button>
+</div>
+</div>
+
+<!-- VENTANA PEDIDO -->
+<div id="pedido">
+<div class="pedido-caja">
+
+<h2>🛒 Mi pedido</h2>
+
+<div id="listaPedido"></div>
+
+<div class="total">
+Total: $<span id="totalFinal">0</span>
+</div>
+
+<label>
+¿Cómo retirarás tu pedido?
+<select id="retiro">
+<option>Retiro en el local</option>
+<option>Entrega a domicilio</option>
+</select>
+</label>
+
+<label style="display:block;margin-top:15px;">
+Nombre
+<input id="nombre" type="text" placeholder="Tu nombre">
+</label>
+
+<button class="btn-final" onclick="copiarPedido()">
+📋 Copiar pedido
+</button>
+
+<button class="btn-cerrar" onclick="cerrarPedido()">
+Cerrar
+</button>
+
+</div>
+</div>
+
+<script>
+
+let carrito=[];
+let total=0;
+
+function obtenerExtras(id1,id2){
+  let extras=0;
+
+  if(id1){
+    extras+=Number(document.getElementById(id1).value);
+  }
+
+  if(id2){
+    extras+=Number(document.getElementById(id2).value);
+  }
+
+  return extras;
+}
+
+function agregar(nombre,precio,id1,id2){
+
+  let extras=obtenerExtras(id1,id2);
+
+  carrito.push({
+    nombre:nombre,
+    precio:precio+extras,
+    extras:extras
+  });
+
+  actualizarCarrito();
+
+  alert('❤️ Producto agregado al pedido');
+}
+
+function agregarTres(nombre,precio,id1,id2,id3){
+
+  let extras=
+    Number(document.getElementById(id1).value)+
+    Number(document.getElementById(id2).value)+
+    Number(document.getElementById(id3).value);
+
+  carrito.push({
+    nombre:nombre,
+    precio:precio+extras,
+    extras:extras
+  });
+
+  actualizarCarrito();
+
+  alert('❤️ Producto agregado al pedido');
+}
+
+function actualizarCarrito(){
+
+  total=0;
+
+  carrito.forEach(item=>{
+    total+=item.precio;
+  });
+
+  document.getElementById('cantidad').innerText=carrito.length;
+  document.getElementById('total').innerText=total.toLocaleString('es-CL');
+}
+
+function verPedido(){
+
+  let lista=document.getElementById('listaPedido');
+
+  if(carrito.length===0){
+
+    lista.innerHTML='<p class="vacio">Tu pedido está vacío ❤️</p>';
+
+  }else{
+
+    lista.innerHTML='';
+
+    carrito.forEach((item,index)=>{
+
+      lista.innerHTML+=`
+      <div class="item-pedido">
+        <strong>${index+1}. ${item.nombre}</strong><br>
+        $${item.precio.toLocaleString('es-CL')}
+      </div>
+      `;
+
+    });
+
+  }
+
+  document.getElementById('totalFinal').innerText=
+    total.toLocaleString('es-CL');
+
+  document.getElementById('pedido').style.display='block';
+}
+
+function cerrarPedido(){
+  document.getElementById('pedido').style.display='none';
+}
+
+function copiarPedido(){
+
+  if(carrito.length===0){
+    alert('Tu pedido está vacío ❤️');
+    return;
+  }
+
+  let nombre=document.getElementById('nombre').value || 'Cliente';
+  let retiro=document.getElementById('retiro').value;
+  let comentario=document.getElementById('comentario').value || 'Sin comentario';
+
+  let texto=
+  'AYÜN_NEWEN ❤️\n\n'+
+  'Hola, quiero realizar este pedido:\n\n';
+
+  carrito.forEach((item,index)=>{
+
+    texto+=
+    (index+1)+'. '+
+    item.nombre+
+    ' - $'+
+    item.precio.toLocaleString('es-CL')+
+    '\n';
+
+  });
+
+  texto+=
+  '\nTOTAL: $'+
+  total.toLocaleString('es-CL')+
+  '\n\n'+
+  'Nombre: '+nombre+
+  '\nModalidad: '+retiro+
+  '\nComentario: '+comentario;
+
+  navigator.clipboard.writeText(texto)
+  .then(()=>{
+    alert('✅ Pedido copiado. Ahora puedes pegarlo en WhatsApp.');
+  })
+  .catch(()=>{
+    alert(texto);
+  });
+
+}
+
+</script>
+
+</body>
+</html>
